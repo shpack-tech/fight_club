@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="interface/index.css" />
+		<title>level select</title>
+	</head>
+	<body>
+		<ul>
+			<li data-level="0">level 1</li>
+			<li data-level="1">level 2</li>
+			<li data-level="2">level 3</li>
+			<li data-level="3">level 4</li>
+			<li data-level="4">level 5</li>
+		</ul>
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				document.querySelector('ul').onclick = (e) => {
+					if (e.target.tagName === 'LI') {
+						const lvl = e.target.dataset.level;
+						localStorage.setItem('level', lvl);
+						window.location.href = 'game.html';
+					}
+				};
+			});
+		</script>
+		<style>
+			html {
+				height: 100%;
+			}
+			body {
+				background: url('/src/images/dfdf.jpg') left no-repeat;
+				height: 100%;
+				width: 100%;
+				background-size: cover;
+			}
+			ul {
+				display: flex;
+				width: 100%;
+				padding: 150px 50px;
+				justify-content: space-between;
+				box-sizing: border-box;
+			}
+			li {
+				font-family: 'wax';
+				list-style: none;
+				font-size: 50px;
+				cursor: pointer;
+				color: red;
+				background: black;
+				width: 18%;
+				text-align: center;
+				border-radius: 15px;
+				padding: 20px 0;
+			}
+		</style>
+	</body>
+</html>
